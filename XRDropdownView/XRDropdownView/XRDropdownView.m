@@ -127,6 +127,7 @@
   NSLog(@"###Cell selected###");
   [self.delegate setSelectedValue:[dataArray objectAtIndex:indexPath.row]];
   [self.dropdownButton setSelected:NO];
+  [self.dropdownButton setTitle:[dataArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
   [UIView animateWithDuration:0.2 animations:^{
     self.dropdownScrollView.contentOffset = CGPointMake(0.0, 0.0);
     [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.dropdownButton.frame.size.height)];
