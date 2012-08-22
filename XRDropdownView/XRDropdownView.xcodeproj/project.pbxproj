@@ -1,0 +1,314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3EB6D7FA15E5225D00632476 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB6D7F915E5225D00632476 /* UIKit.framework */; };
+		3EB6D7FC15E5225D00632476 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB6D7FB15E5225D00632476 /* Foundation.framework */; };
+		3EB6D7FE15E5225D00632476 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB6D7FD15E5225D00632476 /* CoreGraphics.framework */; };
+		3EB6D80415E5225D00632476 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EB6D80215E5225D00632476 /* InfoPlist.strings */; };
+		3EB6D80615E5225D00632476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB6D80515E5225D00632476 /* main.m */; };
+		3EB6D80A15E5225D00632476 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB6D80915E5225D00632476 /* AppDelegate.m */; };
+		3EB6D80D15E5225D00632476 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB6D80C15E5225D00632476 /* ViewController.m */; };
+		3EB6D81015E5225D00632476 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EB6D80E15E5225D00632476 /* ViewController_iPhone.xib */; };
+		3EB6D81315E5225D00632476 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EB6D81115E5225D00632476 /* ViewController_iPad.xib */; };
+		3EB6D81B15E5228400632476 /* XRDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB6D81A15E5228400632476 /* XRDropdownView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3EB6D7F515E5225D00632476 /* XRDropdownView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XRDropdownView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EB6D7F915E5225D00632476 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3EB6D7FB15E5225D00632476 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3EB6D7FD15E5225D00632476 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3EB6D80115E5225D00632476 /* XRDropdownView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XRDropdownView-Info.plist"; sourceTree = "<group>"; };
+		3EB6D80315E5225D00632476 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3EB6D80515E5225D00632476 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3EB6D80715E5225D00632476 /* XRDropdownView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XRDropdownView-Prefix.pch"; sourceTree = "<group>"; };
+		3EB6D80815E5225D00632476 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3EB6D80915E5225D00632476 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3EB6D80B15E5225D00632476 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3EB6D80C15E5225D00632476 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3EB6D80F15E5225D00632476 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		3EB6D81215E5225D00632476 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		3EB6D81915E5228400632476 /* XRDropdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRDropdownView.h; sourceTree = "<group>"; };
+		3EB6D81A15E5228400632476 /* XRDropdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRDropdownView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3EB6D7F215E5225D00632476 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EB6D7FA15E5225D00632476 /* UIKit.framework in Frameworks */,
+				3EB6D7FC15E5225D00632476 /* Foundation.framework in Frameworks */,
+				3EB6D7FE15E5225D00632476 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3EB6D7EA15E5225D00632476 = {
+			isa = PBXGroup;
+			children = (
+				3EB6D7FF15E5225D00632476 /* XRDropdownView */,
+				3EB6D7F815E5225D00632476 /* Frameworks */,
+				3EB6D7F615E5225D00632476 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3EB6D7F615E5225D00632476 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3EB6D7F515E5225D00632476 /* XRDropdownView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3EB6D7F815E5225D00632476 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3EB6D7F915E5225D00632476 /* UIKit.framework */,
+				3EB6D7FB15E5225D00632476 /* Foundation.framework */,
+				3EB6D7FD15E5225D00632476 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3EB6D7FF15E5225D00632476 /* XRDropdownView */ = {
+			isa = PBXGroup;
+			children = (
+				3EB6D81C15E522A300632476 /* class */,
+				3EB6D80815E5225D00632476 /* AppDelegate.h */,
+				3EB6D80915E5225D00632476 /* AppDelegate.m */,
+				3EB6D80B15E5225D00632476 /* ViewController.h */,
+				3EB6D80C15E5225D00632476 /* ViewController.m */,
+				3EB6D80E15E5225D00632476 /* ViewController_iPhone.xib */,
+				3EB6D81115E5225D00632476 /* ViewController_iPad.xib */,
+				3EB6D80015E5225D00632476 /* Supporting Files */,
+			);
+			path = XRDropdownView;
+			sourceTree = "<group>";
+		};
+		3EB6D80015E5225D00632476 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3EB6D80115E5225D00632476 /* XRDropdownView-Info.plist */,
+				3EB6D80215E5225D00632476 /* InfoPlist.strings */,
+				3EB6D80515E5225D00632476 /* main.m */,
+				3EB6D80715E5225D00632476 /* XRDropdownView-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3EB6D81C15E522A300632476 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				3EB6D81915E5228400632476 /* XRDropdownView.h */,
+				3EB6D81A15E5228400632476 /* XRDropdownView.m */,
+			);
+			name = class;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3EB6D7F415E5225D00632476 /* XRDropdownView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EB6D81615E5225D00632476 /* Build configuration list for PBXNativeTarget "XRDropdownView" */;
+			buildPhases = (
+				3EB6D7F115E5225D00632476 /* Sources */,
+				3EB6D7F215E5225D00632476 /* Frameworks */,
+				3EB6D7F315E5225D00632476 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XRDropdownView;
+			productName = XRDropdownView;
+			productReference = 3EB6D7F515E5225D00632476 /* XRDropdownView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3EB6D7EC15E5225D00632476 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Xinrui Gao";
+			};
+			buildConfigurationList = 3EB6D7EF15E5225D00632476 /* Build configuration list for PBXProject "XRDropdownView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3EB6D7EA15E5225D00632476;
+			productRefGroup = 3EB6D7F615E5225D00632476 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3EB6D7F415E5225D00632476 /* XRDropdownView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3EB6D7F315E5225D00632476 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EB6D80415E5225D00632476 /* InfoPlist.strings in Resources */,
+				3EB6D81015E5225D00632476 /* ViewController_iPhone.xib in Resources */,
+				3EB6D81315E5225D00632476 /* ViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3EB6D7F115E5225D00632476 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EB6D80615E5225D00632476 /* main.m in Sources */,
+				3EB6D80A15E5225D00632476 /* AppDelegate.m in Sources */,
+				3EB6D80D15E5225D00632476 /* ViewController.m in Sources */,
+				3EB6D81B15E5228400632476 /* XRDropdownView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3EB6D80215E5225D00632476 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EB6D80315E5225D00632476 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3EB6D80E15E5225D00632476 /* ViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EB6D80F15E5225D00632476 /* en */,
+			);
+			name = ViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		3EB6D81115E5225D00632476 /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EB6D81215E5225D00632476 /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3EB6D81415E5225D00632476 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3EB6D81515E5225D00632476 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3EB6D81715E5225D00632476 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XRDropdownView/XRDropdownView-Prefix.pch";
+				INFOPLIST_FILE = "XRDropdownView/XRDropdownView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3EB6D81815E5225D00632476 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XRDropdownView/XRDropdownView-Prefix.pch";
+				INFOPLIST_FILE = "XRDropdownView/XRDropdownView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3EB6D7EF15E5225D00632476 /* Build configuration list for PBXProject "XRDropdownView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EB6D81415E5225D00632476 /* Debug */,
+				3EB6D81515E5225D00632476 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EB6D81615E5225D00632476 /* Build configuration list for PBXNativeTarget "XRDropdownView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EB6D81715E5225D00632476 /* Debug */,
+				3EB6D81815E5225D00632476 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3EB6D7EC15E5225D00632476 /* Project object */;
+}
