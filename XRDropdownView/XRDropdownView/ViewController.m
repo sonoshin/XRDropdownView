@@ -20,16 +20,17 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
   NSArray *dataArray = [[NSArray alloc] initWithObjects:
+                        [[NSArray alloc] initWithObjects:@"test01", @"test02", @"test03", @"test04", @"test05", @"test06", @"test07", @"test08", @"test09", nil],
                         [[NSArray alloc] initWithObjects:@"test11", @"test12", @"test13", @"test14", @"test15", @"test16", @"test17", nil],
                         [[NSArray alloc] initWithObjects:@"test21", @"test22", @"test23", @"test24", @"test25", nil],
                         [[NSArray alloc] initWithObjects:@"test31", @"test32", @"test33", @"test34", nil],
                         [[NSArray alloc] initWithObjects:@"test41", @"test42", @"test43", @"test44", @"test45", @"test46", @"test47", @"test48", nil],
-                        [[NSArray alloc] initWithObjects:@"test51", @"test52", @"test53", nil],
-                        [[NSArray alloc] initWithObjects:@"test61", @"test62", @"test63", @"test64", @"test65", @"test66", @"test67", @"test68", @"test69", nil]
+                        [[NSArray alloc] initWithObjects:@"test51", @"test52", @"test53", nil]                        
                         , nil];
-  NSArray *titleArray = [[NSArray alloc] initWithObjects:@"test1", @"test2", @"test3", @"test4", @"test5", @"test6", nil];
+  NSArray *titleArray = [[NSArray alloc] initWithObjects:@"test0", @"test1", @"test2", @"test3", @"test4", @"test5", nil];
   
   for (int i = 0; i < dropdownViews.count; i++) {
+    [[dropdownViews objectAtIndex:i] setTag:i];
     [[dropdownViews objectAtIndex:i] setData:[dataArray objectAtIndex:i] withTitle:[titleArray objectAtIndex:i]];
   }
 
@@ -54,8 +55,8 @@
 
 #pragma mark - DropdownViewDelegate
 
-- (void)setSelectedValue:(NSString *)value {
-  NSLog(@"%@ is selected", value);
+- (void)setSelectedValue:(NSString *)value forDropdownView:(NSInteger)viewTag {
+  NSLog(@"Dropdown view %d - item %@ is selected", viewTag, value);
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @protocol XRDropdownViewDelegate <NSObject>
 
-- (void)setSelectedValue:(NSString *)value;
+- (void)setSelectedValue:(NSString *)value forDropdownView:(NSInteger)viewTag;
 
 @end
 

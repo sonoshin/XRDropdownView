@@ -125,7 +125,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   NSLog(@"###Cell selected###");
-  [self.delegate setSelectedValue:[dataArray objectAtIndex:indexPath.row]];
+  [self.delegate setSelectedValue:[dataArray objectAtIndex:indexPath.row] forDropdownView:self.tag];
   [self.dropdownButton setSelected:NO];
   [self.dropdownButton setTitle:[dataArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
   [UIView animateWithDuration:0.2 animations:^{
