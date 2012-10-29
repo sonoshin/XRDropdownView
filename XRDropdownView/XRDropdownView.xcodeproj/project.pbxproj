@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E07FF26163EC31900ABBC17 /* XRDropdownViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07FF21163EC31900ABBC17 /* XRDropdownViewCell.m */; };
+		3E07FF27163EC31900ABBC17 /* XRDropdownViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E07FF22163EC31900ABBC17 /* XRDropdownViewCell.xib */; };
+		3E07FF28163EC31900ABBC17 /* XRDropdownViewImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07FF24163EC31900ABBC17 /* XRDropdownViewImageCell.m */; };
+		3E07FF29163EC31900ABBC17 /* XRDropdownViewImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E07FF25163EC31900ABBC17 /* XRDropdownViewImageCell.xib */; };
+		3E07FF2D163EC57B00ABBC17 /* WishlistCheckIcon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E07FF2B163EC57B00ABBC17 /* WishlistCheckIcon@2x~ipad.png */; };
+		3E07FF2E163EC57B00ABBC17 /* WishlistCheckIcon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E07FF2C163EC57B00ABBC17 /* WishlistCheckIcon~ipad.png */; };
 		3EB6D7FA15E5225D00632476 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB6D7F915E5225D00632476 /* UIKit.framework */; };
 		3EB6D7FC15E5225D00632476 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB6D7FB15E5225D00632476 /* Foundation.framework */; };
 		3EB6D7FE15E5225D00632476 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB6D7FD15E5225D00632476 /* CoreGraphics.framework */; };
@@ -20,6 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E07FF20163EC31900ABBC17 /* XRDropdownViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRDropdownViewCell.h; sourceTree = "<group>"; };
+		3E07FF21163EC31900ABBC17 /* XRDropdownViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRDropdownViewCell.m; sourceTree = "<group>"; };
+		3E07FF22163EC31900ABBC17 /* XRDropdownViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XRDropdownViewCell.xib; sourceTree = "<group>"; };
+		3E07FF23163EC31900ABBC17 /* XRDropdownViewImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRDropdownViewImageCell.h; sourceTree = "<group>"; };
+		3E07FF24163EC31900ABBC17 /* XRDropdownViewImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRDropdownViewImageCell.m; sourceTree = "<group>"; };
+		3E07FF25163EC31900ABBC17 /* XRDropdownViewImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XRDropdownViewImageCell.xib; sourceTree = "<group>"; };
+		3E07FF2B163EC57B00ABBC17 /* WishlistCheckIcon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WishlistCheckIcon@2x~ipad.png"; sourceTree = "<group>"; };
+		3E07FF2C163EC57B00ABBC17 /* WishlistCheckIcon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WishlistCheckIcon~ipad.png"; sourceTree = "<group>"; };
 		3EB6D7F515E5225D00632476 /* XRDropdownView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XRDropdownView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EB6D7F915E5225D00632476 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3EB6D7FB15E5225D00632476 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +111,8 @@
 		3EB6D80015E5225D00632476 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3E07FF2B163EC57B00ABBC17 /* WishlistCheckIcon@2x~ipad.png */,
+				3E07FF2C163EC57B00ABBC17 /* WishlistCheckIcon~ipad.png */,
 				3EB6D80115E5225D00632476 /* XRDropdownView-Info.plist */,
 				3EB6D80215E5225D00632476 /* InfoPlist.strings */,
 				3EB6D80515E5225D00632476 /* main.m */,
@@ -110,6 +126,12 @@
 			children = (
 				3EB6D81915E5228400632476 /* XRDropdownView.h */,
 				3EB6D81A15E5228400632476 /* XRDropdownView.m */,
+				3E07FF20163EC31900ABBC17 /* XRDropdownViewCell.h */,
+				3E07FF21163EC31900ABBC17 /* XRDropdownViewCell.m */,
+				3E07FF22163EC31900ABBC17 /* XRDropdownViewCell.xib */,
+				3E07FF23163EC31900ABBC17 /* XRDropdownViewImageCell.h */,
+				3E07FF24163EC31900ABBC17 /* XRDropdownViewImageCell.m */,
+				3E07FF25163EC31900ABBC17 /* XRDropdownViewImageCell.xib */,
 			);
 			name = class;
 			sourceTree = "<group>";
@@ -168,6 +190,10 @@
 				3EB6D80415E5225D00632476 /* InfoPlist.strings in Resources */,
 				3EB6D81015E5225D00632476 /* ViewController_iPhone.xib in Resources */,
 				3EB6D81315E5225D00632476 /* ViewController_iPad.xib in Resources */,
+				3E07FF27163EC31900ABBC17 /* XRDropdownViewCell.xib in Resources */,
+				3E07FF29163EC31900ABBC17 /* XRDropdownViewImageCell.xib in Resources */,
+				3E07FF2D163EC57B00ABBC17 /* WishlistCheckIcon@2x~ipad.png in Resources */,
+				3E07FF2E163EC57B00ABBC17 /* WishlistCheckIcon~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +208,8 @@
 				3EB6D80A15E5225D00632476 /* AppDelegate.m in Sources */,
 				3EB6D80D15E5225D00632476 /* ViewController.m in Sources */,
 				3EB6D81B15E5228400632476 /* XRDropdownView.m in Sources */,
+				3E07FF26163EC31900ABBC17 /* XRDropdownViewCell.m in Sources */,
+				3E07FF28163EC31900ABBC17 /* XRDropdownViewImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +337,7 @@
 				3EB6D81815E5225D00632476 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

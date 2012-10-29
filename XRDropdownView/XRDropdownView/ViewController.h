@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "XRDropdownView.h"
 
-@interface ViewController : UIViewController <XRDropdownViewDelegate>
+@interface ViewController : UIViewController <XRDropdownViewDelegate, UIGestureRecognizerDelegate>
 
-@property (strong, nonatomic) IBOutletCollection(XRDropdownView) NSArray *dropdownViews;
+@property (weak, nonatomic) IBOutlet XRDropdownView *normalDropdownView1;
+@property (weak, nonatomic) IBOutlet XRDropdownView *normalDropdownView2;
+@property (weak, nonatomic) IBOutlet XRDropdownView *imageDropdownView1;
+@property (weak, nonatomic) IBOutlet XRDropdownView *imageDropdownView2;
 
 @end
