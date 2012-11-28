@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XRDropdownViewCell.h"
 
-@interface XRDropdownViewImageCell : UITableViewCell
+@interface XRDropdownViewImageCell : XRDropdownViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UIImageView *checkImage;
 @property (weak, nonatomic) IBOutlet UIImageView *cellImage;
 
 @end

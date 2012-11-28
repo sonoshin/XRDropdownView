@@ -66,6 +66,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E6CAE2816660E0F00E99160 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3E07FF23163EC31900ABBC17 /* XRDropdownViewImageCell.h */,
+				3E07FF24163EC31900ABBC17 /* XRDropdownViewImageCell.m */,
+				3E07FF25163EC31900ABBC17 /* XRDropdownViewImageCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		3EB6D7EA15E5225D00632476 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 				3EB6D80C15E5225D00632476 /* ViewController.m */,
 				3EB6D80E15E5225D00632476 /* ViewController_iPhone.xib */,
 				3EB6D81115E5225D00632476 /* ViewController_iPad.xib */,
+				3E6CAE2816660E0F00E99160 /* Cells */,
 				3EB6D80015E5225D00632476 /* Supporting Files */,
 			);
 			path = XRDropdownView;
@@ -129,9 +140,6 @@
 				3E07FF20163EC31900ABBC17 /* XRDropdownViewCell.h */,
 				3E07FF21163EC31900ABBC17 /* XRDropdownViewCell.m */,
 				3E07FF22163EC31900ABBC17 /* XRDropdownViewCell.xib */,
-				3E07FF23163EC31900ABBC17 /* XRDropdownViewImageCell.h */,
-				3E07FF24163EC31900ABBC17 /* XRDropdownViewImageCell.m */,
-				3E07FF25163EC31900ABBC17 /* XRDropdownViewImageCell.xib */,
 			);
 			name = class;
 			sourceTree = "<group>";

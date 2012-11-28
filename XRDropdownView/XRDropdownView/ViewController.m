@@ -8,9 +8,11 @@
 
 #import "ViewController.h"
 
-@interface ViewController () {
+@interface ViewController () 
+{
   UIView *dropdownOverlayView;
-  NSArray *dataArray;
+  NSArray *dataArray, *sampleImages;
+  BOOL needSampleImage;
 }
 
 @end
@@ -20,44 +22,23 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-  dataArray = [[NSArray alloc] initWithObjects:
-                        [[NSArray alloc] initWithObjects:@"test01", @"test02", @"test03", @"test04", @"test05", @"test06", @"test07", @"test08", @"test09", nil],
-                        [[NSArray alloc] initWithObjects:@"test11", @"test12", @"test13", @"test14", @"test15", @"test16", @"test17", nil],
-                        [[NSArray alloc] initWithObjects:@"test21", @"test22", @"test23", @"test24", @"test25", nil],
-                        [[NSArray alloc] initWithObjects:@"test31", @"test32", @"test33", @"test34", nil],
-                        [[NSArray alloc] initWithObjects:@"test41", @"test42", @"test43", @"test44", @"test45", @"test46", @"test47", @"test48", nil],
-                        [[NSArray alloc] initWithObjects:@"test51", @"test52", @"test53", nil]                        
-                        , nil];
   
-  _normalDropdownView1.needFooterButtons = NO;
-  _normalDropdownView1.containerSize = self.view.frame.size;
-  [_normalDropdownView1 setTag:0];
-  [_normalDropdownView1 setNeedMultipleSelection:YES];
-  [_normalDropdownView1 setData:dataArray[0] withTitle:@"one" needUpdateDropdownTitle:YES];
+  needSampleImage = NO;
+  sampleImages = @[]; //add images in case of needSampleImage = YES
   
-  _normalDropdownView2.needFooterButtons = YES;
-  _normalDropdownView2.containerSize = self.view.frame.size;
-  [_normalDropdownView2 setTag:1];
-  [_normalDropdownView2 setNeedMultipleSelection:NO];
-  [_normalDropdownView2 setData:dataArray[1] withTitle:@"two" needUpdateDropdownTitle:YES];
+  dataArray = @[@"test01", @"test02", @"test03", @"test04", @"test05", @"test06", @"test07", @"test08", @"test09"];
   
-  _imageDropdownView1.needFooterButtons = NO;
-  _imageDropdownView1.containerSize = self.view.frame.size;
-  [_imageDropdownView1 setTag:2];
-  [_imageDropdownView1 setNeedMultipleSelection:YES];
-  [_imageDropdownView1 setNeedSampleImage:YES];
-  [_imageDropdownView1 setSampleImages:nil];
-  [_imageDropdownView1 setData:dataArray[2] withTitle:@"three" needUpdateDropdownTitle:YES];
+  CGFloat cellHeight = [XRDropdownView cellHeight];
+  CGFloat footerHeight = [XRDropdownView footerHeight];
+  CGFloat arrowPadding = [XRDropdownView arrowsPadding];
+  BOOL needFooterButtons = YES;
+  CGSize containerSize = self.view.frame.size;
+  NSInteger numberOfCellsToShow = containerSize.height > 0 ? (containerSize.height-(needFooterButtons ? footerHeight : 5.0)-arrowPadding-self.view.frame.origin.y)/cellHeight-1 : 8;
+  _normalDropdownView1 = [[XRDropdownView alloc] initWithDelegate:self
+                                                       dataSource:self
+                                                            title:@"one"
+                                                           height:cellHeight*MIN(dataArray.count, numberOfCellsToShow)];
   
-  _imageDropdownView2.needFooterButtons = YES;
-  _imageDropdownView2.containerSize = self.view.frame.size;
-  [_imageDropdownView2 setTag:2];
-  [_imageDropdownView2 setNeedMultipleSelection:NO];
-  [_imageDropdownView2 setNeedSampleImage:YES];
-  [_imageDropdownView2 setSampleImages:nil];
-  [_imageDropdownView2 setData:dataArray[3] withTitle:@"four" needUpdateDropdownTitle:YES];
-
   dropdownOverlayView = [[UIView alloc] initWithFrame:self.view.frame];
   dropdownOverlayView.backgroundColor = [UIColor clearColor];
   dropdownOverlayView.userInteractionEnabled = YES;
@@ -105,40 +86,7 @@
 
 #pragma mark - DropdownViewDelegate
 
-- (void)setSelectedValue:(NSString *)value atIndex:(NSInteger)index forDropdownView:(NSInteger)viewTag {
-  NSLog(@"Dropdown view %d - item %@ is selected", viewTag, value);
-  switch (viewTag) {
-    case 0:
-      break;
-    case 1:
-      break;
-    case 2:
-      break;
-    case 3:
-      break;
-  }
-}
-
-//For multiple selection case
-- (void)setSelectedValues:(NSArray *)values atIndexes:(NSArray *)indexes forDropdownView:(NSInteger)viewTag {
-  if (dataArray[viewTag] != [NSNull null]) {
-    for (int i = 0 ; i < indexes.count ; i++) {
-      NSLog(@"Dropdown view %d - item %@ - %@ is selected", viewTag, indexes[i], values[i]);
-    }
-  }
-  switch (viewTag) {
-    case 0:
-      break;
-    case 1:
-      break;
-    case 2:
-      break;
-    case 3:
-      break;
-  }
-}
-
-- (void)dropdownViewDidOpen:(XRDropdownView *)dropdownView
+- (void)dropdownViewDidExpand:(XRDropdownView *)dropdownView
 {
   NSArray *dropdownViews = @[_normalDropdownView1, _normalDropdownView2, _imageDropdownView1, _imageDropdownView2];
   for (XRDropdownView *aDropdownView in dropdownViews) {
@@ -152,7 +100,7 @@
   [self.view bringSubviewToFront:dropdownView];
 }
 
-- (void)dropdownViewDidClose:(XRDropdownView *)dropdownView
+- (void)dropdownViewDidCollapse:(XRDropdownView *)dropdownView
 {
   [dropdownView updateSelectedValues]; //currently only works for Multiple Selection case
   [dropdownOverlayView removeFromSuperview];
@@ -165,6 +113,64 @@
 
 - (void)needAddItemToDropdownView:(NSInteger)tag andShow:(BOOL)shouldShow asCopy:(BOOL)copy {
   //add operations
+}
+
+- (NSInteger)dropdownView:(XRDropdownView *)dropdownView numberOfRowsInSection:(NSInteger)section
+{
+  return dataArray.count;
+}
+
+- (id)dropdownView:(XRDropdownView *)dropdownView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  NSString *CellIdentifier = needSampleImage ? @"XRDropdownViewImageCell" : @"XRDropdownViewCell";
+  id cell = [dropdownView dequeueReusableCellWithIdentifier:CellIdentifier];
+  
+  if (!needSampleImage) {
+    
+    [[NSBundle mainBundle] loadNibNamed:@"XRDropdownViewCell" owner:self options:nil];
+    
+    _dropdownCell.label.text = [dataArray objectAtIndex:indexPath.row];
+    _dropdownCell.label.font = [UIFont fontWithName:@"Lato-Regular" size:13.0];
+    _dropdownCell.label.textColor = [UIColor whiteColor];
+    _dropdownCell.checkImage.hidden = YES;
+    
+    cell = _dropdownCell;
+    _dropdownCell = nil;
+    
+  }else{
+    [[NSBundle mainBundle] loadNibNamed:@"XRDropdownViewImageCell" owner:self options:nil];
+    
+    _dropdownImageCell.label.text = [dataArray objectAtIndex:indexPath.row];
+    _dropdownImageCell.label.font = [UIFont fontWithName:@"Lato-Regular" size:13.0];
+    _dropdownImageCell.label.textColor = [UIColor whiteColor];
+    _dropdownImageCell.checkImage.hidden = YES;
+    _dropdownImageCell.cellImage.image = sampleImages[indexPath.row] ? sampleImages[indexPath.row] : nil;
+    
+    cell = _dropdownImageCell;
+    _dropdownImageCell = nil;
+  }
+  
+  return cell;
+}
+
+- (void)dropdownView:(XRDropdownView *)dropdownView didSelectCellAtIndexPath:(NSIndexPath *)indexPath
+{
+  if (!_needMultipleSelection) {
+    //    NSLog(@"###Cell selected###");
+    _currentSelectedIndexPath = indexPath;
+    [self setSelectedValue:[dataArray objectAtIndex:indexPath.row] atIndex:indexPath.row forDropdownView:self.tag];
+  }else{
+    //    NSLog(@"###Multiple cells selected##");
+    NSArray *selectedIndexpaths = [dropdownView indexPathsForSelectedRows];
+    NSMutableArray *selectedValues = [NSMutableArray array];
+    NSMutableArray *selectedRows = [NSMutableArray array];
+    for (int i = 0; i < selectedIndexpaths.count; i++) {
+      NSString *aValue = [dataArray objectAtIndex:[selectedIndexpaths[i] row]];
+      [selectedValues addObject:aValue];
+      [selectedRows addObject:@([selectedIndexpaths[i] row])];
+    }
+    [self setSelectedValues:selectedValues atIndexes:selectedRows forDropdownView:self.tag];
+  }
 }
 
 @end
