@@ -44,7 +44,10 @@
   return kArrowsPadding;
 }
 
-- (id)initWithFrame:(CGRect)frame delegate:(id<XRDropdownViewDelegate>)delegate dataSource:(id<XRDropdownViewDataSource>)dataSource title:(NSString *)title height:(CGFloat)height
+- (id)initWithFrame:(CGRect)frame
+           delegate:(id<XRDropdownViewDelegate>)delegate
+         dataSource:(id<XRDropdownViewDataSource>)dataSource
+             params:(NSDictionary *)params
 {  
   if (self = [super initWithFrame:frame]) {
     self.backgroundColor = kBackgroundColor;
@@ -52,8 +55,10 @@
     //Initialize the data source and delegate variables
     self.dataSource = dataSource;
     self.delegate = delegate;
-    self.tableHeight = height;
-    self.defaultTitle = title;
+    self.tableHeight = [[params valueForKey:@"Height"] floatValue];
+    self.defaultTitle = [params valueForKey:@"Title"];
+    _needFooterButtons = [[params valueForKey:@"Footer"] boolValue];
+    _needMultipleSelection = [[params valueForKey:@"MultiSelection"] boolValue];
     
     [self setButtonWithTitle:self.defaultTitle];
     
@@ -184,8 +189,9 @@
 }
 
 - (void)openDropdownView {
-  [self.delegate dropdownViewDidExpand:self]; //here need to close all other opened dropdownViews and bring this dropdownView to front
-  
+  if ([self.delegate respondsToSelector:@selector(dropdownViewDidExpand:)]) {
+    [self.delegate dropdownViewDidExpand:self]; //here need to close all other opened dropdownViews and bring this dropdownView to front
+  }
   if (_currentSelectedIndexPath) {
     //Here set to UITableViewScrollPositionBottom to show the latest added item (in case of the latest is added as the last one)
     [self.dropdownTableView selectRowAtIndexPath:_currentSelectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
@@ -206,7 +212,9 @@
       self.dropdownScrollView.contentOffset = CGPointZero;
       [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.dropdownTitleButton.frame.size.height)];
     }];
-    [self.delegate dropdownViewDidCollapse:self];
+    if ([self.delegate respondsToSelector:@selector(dropdownViewDidCollapse:)]) {
+      [self.delegate dropdownViewDidCollapse:self];
+    }
   }else {
     [sender setSelected:YES];
     [self openDropdownView];
@@ -215,13 +223,15 @@
 
 - (void)resetDropdownView {//only reset frames and buttons, doesn't reset the data
   [self.dropdownTitleButton setSelected:NO];
-  [self.deleteButton setSelected:NO];
   [self.dropdownTableView setEditing:NO animated:NO];
+  [self.deleteButton setSelected:NO];
   [UIView animateWithDuration:0.2 animations:^{
     self.dropdownScrollView.contentOffset = CGPointZero;
     [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.dropdownTitleButton.frame.size.height)];
   }];
-  [self.delegate dropdownViewDidCollapse:self];
+  if ([self.delegate respondsToSelector:@selector(dropdownViewDidCollapse:)]) {
+    [self.delegate dropdownViewDidCollapse:self];
+  }
 }
 
 - (void)updateSelectedValues {
@@ -289,11 +299,10 @@
 {
   if (editingStyle == UITableViewCellEditingStyleDelete)
   {
-    //update DropdownButton title
-    NSInteger newRow = 0;
-    
+    // TODO: Delete doesn't work
     if ([indexPath isEqual:[tableView indexPathForSelectedRow]]) { //only for single selection control
       if (indexPath.row > 0) {
+        NSInteger newRow = 0;
         if (indexPath.row + 1 < [tableView numberOfRowsInSection:indexPath.section]) {
           newRow = indexPath.row + 1;
         }else{ //remove last object in array
@@ -307,21 +316,27 @@
       }
     }
     
-    [self.dropdownTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self.dropdownTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     //remote update
-    [self.delegate dropdownView:self didRemoveCellAtIndexPath:indexPath];
+    if ([self.delegate respondsToSelector:@selector(dropdownView:didRemoveCellAtIndexPath:)]) {
+      [self.delegate dropdownView:self didRemoveCellAtIndexPath:indexPath];
+    }
     
   }
-  [self.dropdownTableView reloadData];
-  [self updateFrame];
-  
+  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC);
+  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    [self.dropdownTableView reloadData];
+    [self updateFrame];
+  });
 }
 
 #pragma mark - Footer button actions
 
 - (void)addButtonAction:(UIButton *)sender
 {
-  [self.delegate dropdownViewWillAddCell:self];
+  if ([self.delegate respondsToSelector:@selector(dropdownViewWillAddCell:)]) {
+    [self.delegate dropdownViewWillAddCell:self];
+  }
   [self resetDropdownView];
 }
 

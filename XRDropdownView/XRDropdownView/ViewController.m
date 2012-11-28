@@ -37,8 +37,7 @@
   _testDropdownView = [[XRDropdownView alloc] initWithFrame:CGRectMake(20.0, 39.0, 187.0, 36.0)
                                                    delegate:self
                                                  dataSource:self
-                                                      title:@"one"
-                                                     height:cellHeight*MIN(dataArray.count, numberOfCellsToShow)];
+                                                     params:@{@"Title" : @"one", @"Height" : @(cellHeight*MIN(dataArray.count, numberOfCellsToShow)), @"Footer" : @(1), @"MultiSelection" : @(0)}];
   [self.view addSubview: _testDropdownView];
   
   dropdownOverlayView = [[UIView alloc] initWithFrame:self.view.frame];
@@ -141,6 +140,13 @@
   }
   
   return cell;
+}
+
+- (void)dropdownView:(XRDropdownView *)dropdownView didRemoveCellAtIndexPath:(NSIndexPath *)indexPath
+{
+  NSMutableArray *mutableDataArray = [NSMutableArray arrayWithArray:dataArray];
+  [mutableDataArray removeObjectAtIndex:indexPath.row];
+  dataArray = mutableDataArray;
 }
 
 - (void)dropdownView:(XRDropdownView *)dropdownView didSelectCellAtIndexPath:(NSIndexPath *)indexPath

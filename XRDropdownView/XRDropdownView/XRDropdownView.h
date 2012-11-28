@@ -29,7 +29,10 @@
 
 @property (strong, nonatomic) NSIndexPath *currentSelectedIndexPath;
 
-- (id)initWithFrame:(CGRect)frame delegate:(id<XRDropdownViewDelegate>)delegate dataSource:(id<XRDropdownViewDataSource>)dataSource title:(NSString *)title height:(CGFloat)height;
+- (id)initWithFrame:(CGRect)frame
+           delegate:(id<XRDropdownViewDelegate>)delegate
+         dataSource:(id<XRDropdownViewDataSource>)dataSource
+             params:(NSDictionary *)params;
 
 + (CGFloat)cellHeight;
 + (CGFloat)footerHeight;
