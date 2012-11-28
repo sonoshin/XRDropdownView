@@ -13,10 +13,7 @@
 
 @interface ViewController : UIViewController <XRDropdownViewDelegate, XRDropdownViewDataSource, UIGestureRecognizerDelegate>
 
-@property (strong, nonatomic) IBOutlet XRDropdownView *normalDropdownView1;
-@property (weak, nonatomic) IBOutlet XRDropdownView *normalDropdownView2;
-@property (weak, nonatomic) IBOutlet XRDropdownView *imageDropdownView1;
-@property (weak, nonatomic) IBOutlet XRDropdownView *imageDropdownView2;
+@property (strong, nonatomic) XRDropdownView *testDropdownView;
 
 @property (strong, nonatomic) IBOutlet XRDropdownViewCell *dropdownCell;
 @property (strong, nonatomic) IBOutlet XRDropdownViewImageCell *dropdownImageCell;

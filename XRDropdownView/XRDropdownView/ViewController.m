@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController () 
+@interface ViewController ()
 {
   UIView *dropdownOverlayView;
   NSArray *dataArray, *sampleImages;
@@ -34,10 +34,12 @@
   BOOL needFooterButtons = YES;
   CGSize containerSize = self.view.frame.size;
   NSInteger numberOfCellsToShow = containerSize.height > 0 ? (containerSize.height-(needFooterButtons ? footerHeight : 5.0)-arrowPadding-self.view.frame.origin.y)/cellHeight-1 : 8;
-  _normalDropdownView1 = [[XRDropdownView alloc] initWithDelegate:self
-                                                       dataSource:self
-                                                            title:@"one"
-                                                           height:cellHeight*MIN(dataArray.count, numberOfCellsToShow)];
+  _testDropdownView = [[XRDropdownView alloc] initWithFrame:CGRectMake(20.0, 39.0, 187.0, 36.0)
+                                                   delegate:self
+                                                 dataSource:self
+                                                      title:@"one"
+                                                     height:cellHeight*MIN(dataArray.count, numberOfCellsToShow)];
+  [self.view addSubview: _testDropdownView];
   
   dropdownOverlayView = [[UIView alloc] initWithFrame:self.view.frame];
   dropdownOverlayView.backgroundColor = [UIColor clearColor];
@@ -46,15 +48,12 @@
   UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToDismissDropdownViews:)];
   tapGesture2.delegate = self;
   [dropdownOverlayView addGestureRecognizer:tapGesture2];
-
+  
 }
 
 - (void)viewDidUnload
 {
-  [self setNormalDropdownView1:nil];
-  [self setNormalDropdownView2:nil];
-  [self setImageDropdownView1:nil];
-  [self setImageDropdownView2:nil];
+  [self setTestDropdownView:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
   
@@ -63,9 +62,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-      return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
   } else {
-      return YES;
+    return YES;
   }
 }
 
@@ -78,23 +77,14 @@
 
 - (void)resetLocalDropdownViews
 {
-  [_normalDropdownView1 resetDropdownView];
-  [_normalDropdownView2 resetDropdownView];
-  [_imageDropdownView1 resetDropdownView];
-  [_imageDropdownView2 resetDropdownView];
+  [_testDropdownView resetDropdownView];
 }
 
 #pragma mark - DropdownViewDelegate
 
 - (void)dropdownViewDidExpand:(XRDropdownView *)dropdownView
 {
-  NSArray *dropdownViews = @[_normalDropdownView1, _normalDropdownView2, _imageDropdownView1, _imageDropdownView2];
-  for (XRDropdownView *aDropdownView in dropdownViews) {
-    if (![aDropdownView isEqual:dropdownView]) {
-      [aDropdownView resetDropdownView];
-    }
-  }
-  
+  [_testDropdownView resetDropdownView];
   dropdownOverlayView.hidden = NO;
   [self.view addSubview:dropdownOverlayView];
   [self.view bringSubviewToFront:dropdownView];
@@ -155,22 +145,11 @@
 
 - (void)dropdownView:(XRDropdownView *)dropdownView didSelectCellAtIndexPath:(NSIndexPath *)indexPath
 {
-  if (!_needMultipleSelection) {
-    //    NSLog(@"###Cell selected###");
-    _currentSelectedIndexPath = indexPath;
-    [self setSelectedValue:[dataArray objectAtIndex:indexPath.row] atIndex:indexPath.row forDropdownView:self.tag];
-  }else{
-    //    NSLog(@"###Multiple cells selected##");
-    NSArray *selectedIndexpaths = [dropdownView indexPathsForSelectedRows];
-    NSMutableArray *selectedValues = [NSMutableArray array];
-    NSMutableArray *selectedRows = [NSMutableArray array];
-    for (int i = 0; i < selectedIndexpaths.count; i++) {
-      NSString *aValue = [dataArray objectAtIndex:[selectedIndexpaths[i] row]];
-      [selectedValues addObject:aValue];
-      [selectedRows addObject:@([selectedIndexpaths[i] row])];
-    }
-    [self setSelectedValues:selectedValues atIndexes:selectedRows forDropdownView:self.tag];
-  }
+  [self setSelectedValue:[dataArray objectAtIndex:indexPath.row] atIndex:indexPath.row forDropdownView:dropdownView.tag];
 }
 
+- (void)setSelectedValue:(NSString *)value atIndex:(NSInteger)index forDropdownView:(NSInteger)viewTag {
+  NSLog(@"Dropdown view %d - item %@ is selected", viewTag, value);
+  
+}
 @end

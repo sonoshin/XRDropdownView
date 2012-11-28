@@ -19,6 +19,7 @@
   NSMutableArray  *dropdownData;
 }
 
+@property (strong, nonatomic) NSString        *defaultTitle;
 @property (strong, nonatomic) UIButton        *dropdownTitleButton;
 @property (strong, nonatomic) UITableView     *dropdownTableView;
 @property (strong, nonatomic) UIScrollView    *dropdownScrollView;
@@ -27,11 +28,6 @@
 @end
 
 @implementation XRDropdownView
-
-- (void)awakeFromNib {
-  [super awakeFromNib];
-  
-}
 
 + (CGFloat)cellHeight
 {
@@ -48,19 +44,18 @@
   return kArrowsPadding;
 }
 
-- (id)initWithDelegate:(id<XRDropdownViewDelegate>)delegate dataSource:(id<XRDropdownViewDataSource>)dataSource title:(NSString *)title height:(CGFloat)height
-{
-  [self awakeFromNib];
-  
-  if (self) {
+- (id)initWithFrame:(CGRect)frame delegate:(id<XRDropdownViewDelegate>)delegate dataSource:(id<XRDropdownViewDataSource>)dataSource title:(NSString *)title height:(CGFloat)height
+{  
+  if (self = [super initWithFrame:frame]) {
     self.backgroundColor = kBackgroundColor;
 
     //Initialize the data source and delegate variables
     self.dataSource = dataSource;
     self.delegate = delegate;
     self.tableHeight = height;
+    self.defaultTitle = title;
     
-    [self setButtonWithTitle:title];
+    [self setButtonWithTitle:self.defaultTitle];
     
     self.dropdownTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -self.tableHeight-(_needFooterButtons?kFooterButtonHeight:5.0)-kArrowsPadding, self.frame.size.width, self.tableHeight)];
     self.dropdownScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,
@@ -268,10 +263,10 @@
   [self.dropdownTitleButton setSelected:NO];
   XRDropdownViewCell *cell = (XRDropdownViewCell *)[tableView cellForRowAtIndexPath:indexPath];
   [self.dropdownTitleButton setTitle:cell.label.text forState:UIControlStateNormal];
-  [UIView animateWithDuration:0.3 animations:^{
-    self.dropdownScrollView.contentOffset = CGPointMake(0.0, 0.0);
-    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.dropdownTitleButton.frame.size.height)];
-  }];
+//  [UIView animateWithDuration:0.3 animations:^{
+//    self.dropdownScrollView.contentOffset = CGPointMake(0.0, 0.0);
+//    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.dropdownTitleButton.frame.size.height)];
+//  }];
   if ([self.delegate respondsToSelector:@selector(dropdownView:didSelectCellAtIndexPath:)]) {
     [self.delegate dropdownView:self didSelectCellAtIndexPath:indexPath];
   }
@@ -295,20 +290,21 @@
   if (editingStyle == UITableViewCellEditingStyleDelete)
   {
     //update DropdownButton title
-    if (indexPath.row == _currentSelectedIndexPath.row) {
-      if (dataArray.count > 1) {
-        if (indexPath.row+1 < dataArray.count) {
-          [self setButtonWithTitle:[dataArray objectAtIndex:indexPath.row+1]];
+    NSInteger newRow = 0;
+    
+    if ([indexPath isEqual:[tableView indexPathForSelectedRow]]) { //only for single selection control
+      if (indexPath.row > 0) {
+        if (indexPath.row + 1 < [tableView numberOfRowsInSection:indexPath.section]) {
+          newRow = indexPath.row + 1;
         }else{ //remove last object in array
-          [self setButtonWithTitle:[dataArray objectAtIndex:indexPath.row-1]];
-          _currentSelectedIndexPath = [NSIndexPath indexPathForRow:_currentSelectedIndexPath.row-1 inSection:_currentSelectedIndexPath.section];
+          newRow = indexPath.row - 1;
         }
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:newRow inSection:indexPath.section];
+        XRDropdownViewCell *cell = (XRDropdownViewCell *)[tableView cellForRowAtIndexPath:newIndexPath];
+        [self setButtonWithTitle:cell.label.text];
       }else{
-        [self setButtonWithTitle:@"wishlist"];
-        _currentSelectedIndexPath = nil;
+        [self setButtonWithTitle:self.defaultTitle];
       }
-    }else if (indexPath.row < _currentSelectedIndexPath.row) {
-      _currentSelectedIndexPath = [NSIndexPath indexPathForRow:_currentSelectedIndexPath.row-1 inSection:_currentSelectedIndexPath.section];
     }
     
     [self.dropdownTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
