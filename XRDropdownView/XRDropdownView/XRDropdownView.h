@@ -21,8 +21,6 @@
 @property (nonatomic) BOOL needMultipleSelection;
 @property (nonatomic) BOOL needFooterButtons;
 
-@property (strong, nonatomic) NSArray *sampleImages;
-
 //Required Settings
 @property (nonatomic) CGSize containerSize;
 @property (nonatomic) CGFloat tableHeight;
@@ -39,8 +37,10 @@
 + (CGFloat)arrowsPadding;
 
 //Actions
-- (void)openDropdownView;
-- (void)resetDropdownView;
+- (void)expandWithScrollPosition:(UITableViewScrollPosition)scrollPosition;
+- (void)reset;
+
+//Old methods - need optimize
 - (void)deselectCell;
 - (void)deselectCells;
 - (void)updateSelectedValues;

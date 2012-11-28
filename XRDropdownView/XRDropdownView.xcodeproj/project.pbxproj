@@ -11,8 +11,20 @@
 		3E07FF27163EC31900ABBC17 /* XRDropdownViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E07FF22163EC31900ABBC17 /* XRDropdownViewCell.xib */; };
 		3E07FF28163EC31900ABBC17 /* XRDropdownViewImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07FF24163EC31900ABBC17 /* XRDropdownViewImageCell.m */; };
 		3E07FF29163EC31900ABBC17 /* XRDropdownViewImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E07FF25163EC31900ABBC17 /* XRDropdownViewImageCell.xib */; };
-		3E07FF2D163EC57B00ABBC17 /* WishlistCheckIcon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E07FF2B163EC57B00ABBC17 /* WishlistCheckIcon@2x~ipad.png */; };
-		3E07FF2E163EC57B00ABBC17 /* WishlistCheckIcon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E07FF2C163EC57B00ABBC17 /* WishlistCheckIcon~ipad.png */; };
+		3E07FF2D163EC57B00ABBC17 /* WishlistCheckIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E07FF2B163EC57B00ABBC17 /* WishlistCheckIcon@2x.png */; };
+		3E07FF2E163EC57B00ABBC17 /* WishlistCheckIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E07FF2C163EC57B00ABBC17 /* WishlistCheckIcon.png */; };
+		3E6CAE6816667AB400E99160 /* WishlistDropdownArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE6016667AB400E99160 /* WishlistDropdownArrowDown.png */; };
+		3E6CAE6916667AB400E99160 /* WishlistDropdownArrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE6116667AB400E99160 /* WishlistDropdownArrowUp.png */; };
+		3E6CAE6A16667AB400E99160 /* WishlistDropdownDeleteIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE6216667AB400E99160 /* WishlistDropdownDeleteIcon.png */; };
+		3E6CAE6B16667AB400E99160 /* WishlistDropdownAddIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE6316667AB400E99160 /* WishlistDropdownAddIcon.png */; };
+		3E6CAE6C16667AB400E99160 /* WishlistDropdownAddIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE6416667AB400E99160 /* WishlistDropdownAddIcon@2x.png */; };
+		3E6CAE6D16667AB400E99160 /* WishlistDropdownDeleteIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE6516667AB400E99160 /* WishlistDropdownDeleteIcon@2x.png */; };
+		3E6CAE6E16667AB400E99160 /* WishlistCellSeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE6616667AB400E99160 /* WishlistCellSeparator.png */; };
+		3E6CAE6F16667AB400E99160 /* WishlistCellSeparator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE6716667AB400E99160 /* WishlistCellSeparator@2x.png */; };
+		3E6CAE7716667BA900E99160 /* WishlistButtonStyle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE7316667BA900E99160 /* WishlistButtonStyle2.png */; };
+		3E6CAE7816667BA900E99160 /* WishlistButtonStyle2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE7416667BA900E99160 /* WishlistButtonStyle2@2x.png */; };
+		3E6CAE7916667BA900E99160 /* WishlistButtonStyle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE7516667BA900E99160 /* WishlistButtonStyle1.png */; };
+		3E6CAE7A16667BA900E99160 /* WishlistButtonStyle1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E6CAE7616667BA900E99160 /* WishlistButtonStyle1@2x.png */; };
 		3EB6D7FA15E5225D00632476 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB6D7F915E5225D00632476 /* UIKit.framework */; };
 		3EB6D7FC15E5225D00632476 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB6D7FB15E5225D00632476 /* Foundation.framework */; };
 		3EB6D7FE15E5225D00632476 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB6D7FD15E5225D00632476 /* CoreGraphics.framework */; };
@@ -32,8 +44,20 @@
 		3E07FF23163EC31900ABBC17 /* XRDropdownViewImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRDropdownViewImageCell.h; sourceTree = "<group>"; };
 		3E07FF24163EC31900ABBC17 /* XRDropdownViewImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRDropdownViewImageCell.m; sourceTree = "<group>"; };
 		3E07FF25163EC31900ABBC17 /* XRDropdownViewImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XRDropdownViewImageCell.xib; sourceTree = "<group>"; };
-		3E07FF2B163EC57B00ABBC17 /* WishlistCheckIcon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WishlistCheckIcon@2x~ipad.png"; sourceTree = "<group>"; };
-		3E07FF2C163EC57B00ABBC17 /* WishlistCheckIcon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WishlistCheckIcon~ipad.png"; sourceTree = "<group>"; };
+		3E07FF2B163EC57B00ABBC17 /* WishlistCheckIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WishlistCheckIcon@2x.png"; sourceTree = "<group>"; };
+		3E07FF2C163EC57B00ABBC17 /* WishlistCheckIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WishlistCheckIcon.png; sourceTree = "<group>"; };
+		3E6CAE6016667AB400E99160 /* WishlistDropdownArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WishlistDropdownArrowDown.png; sourceTree = "<group>"; };
+		3E6CAE6116667AB400E99160 /* WishlistDropdownArrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WishlistDropdownArrowUp.png; sourceTree = "<group>"; };
+		3E6CAE6216667AB400E99160 /* WishlistDropdownDeleteIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WishlistDropdownDeleteIcon.png; sourceTree = "<group>"; };
+		3E6CAE6316667AB400E99160 /* WishlistDropdownAddIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WishlistDropdownAddIcon.png; sourceTree = "<group>"; };
+		3E6CAE6416667AB400E99160 /* WishlistDropdownAddIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WishlistDropdownAddIcon@2x.png"; sourceTree = "<group>"; };
+		3E6CAE6516667AB400E99160 /* WishlistDropdownDeleteIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WishlistDropdownDeleteIcon@2x.png"; sourceTree = "<group>"; };
+		3E6CAE6616667AB400E99160 /* WishlistCellSeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WishlistCellSeparator.png; sourceTree = "<group>"; };
+		3E6CAE6716667AB400E99160 /* WishlistCellSeparator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WishlistCellSeparator@2x.png"; sourceTree = "<group>"; };
+		3E6CAE7316667BA900E99160 /* WishlistButtonStyle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WishlistButtonStyle2.png; sourceTree = "<group>"; };
+		3E6CAE7416667BA900E99160 /* WishlistButtonStyle2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WishlistButtonStyle2@2x.png"; sourceTree = "<group>"; };
+		3E6CAE7516667BA900E99160 /* WishlistButtonStyle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WishlistButtonStyle1.png; sourceTree = "<group>"; };
+		3E6CAE7616667BA900E99160 /* WishlistButtonStyle1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WishlistButtonStyle1@2x.png"; sourceTree = "<group>"; };
 		3EB6D7F515E5225D00632476 /* XRDropdownView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XRDropdownView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EB6D7F915E5225D00632476 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3EB6D7FB15E5225D00632476 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,6 +100,36 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		3E6CAE7116667AB900E99160 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3E6CAE7316667BA900E99160 /* WishlistButtonStyle2.png */,
+				3E6CAE7416667BA900E99160 /* WishlistButtonStyle2@2x.png */,
+				3E6CAE7516667BA900E99160 /* WishlistButtonStyle1.png */,
+				3E6CAE7616667BA900E99160 /* WishlistButtonStyle1@2x.png */,
+				3E6CAE6016667AB400E99160 /* WishlistDropdownArrowDown.png */,
+				3E6CAE6116667AB400E99160 /* WishlistDropdownArrowUp.png */,
+				3E6CAE6216667AB400E99160 /* WishlistDropdownDeleteIcon.png */,
+				3E6CAE6316667AB400E99160 /* WishlistDropdownAddIcon.png */,
+				3E6CAE6416667AB400E99160 /* WishlistDropdownAddIcon@2x.png */,
+				3E6CAE6516667AB400E99160 /* WishlistDropdownDeleteIcon@2x.png */,
+				3E6CAE6616667AB400E99160 /* WishlistCellSeparator.png */,
+				3E6CAE6716667AB400E99160 /* WishlistCellSeparator@2x.png */,
+				3E07FF2B163EC57B00ABBC17 /* WishlistCheckIcon@2x.png */,
+				3E07FF2C163EC57B00ABBC17 /* WishlistCheckIcon.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3E6CAE7216667ADE00E99160 /* XRDropdownView */ = {
+			isa = PBXGroup;
+			children = (
+				3EB6D81C15E522A300632476 /* class */,
+				3E6CAE7116667AB900E99160 /* Resources */,
+			);
+			name = XRDropdownView;
+			sourceTree = "<group>";
+		};
 		3EB6D7EA15E5225D00632476 = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +160,7 @@
 		3EB6D7FF15E5225D00632476 /* XRDropdownView */ = {
 			isa = PBXGroup;
 			children = (
-				3EB6D81C15E522A300632476 /* class */,
+				3E6CAE7216667ADE00E99160 /* XRDropdownView */,
 				3EB6D80815E5225D00632476 /* AppDelegate.h */,
 				3EB6D80915E5225D00632476 /* AppDelegate.m */,
 				3EB6D80B15E5225D00632476 /* ViewController.h */,
@@ -122,8 +176,6 @@
 		3EB6D80015E5225D00632476 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3E07FF2B163EC57B00ABBC17 /* WishlistCheckIcon@2x~ipad.png */,
-				3E07FF2C163EC57B00ABBC17 /* WishlistCheckIcon~ipad.png */,
 				3EB6D80115E5225D00632476 /* XRDropdownView-Info.plist */,
 				3EB6D80215E5225D00632476 /* InfoPlist.strings */,
 				3EB6D80515E5225D00632476 /* main.m */,
@@ -200,8 +252,20 @@
 				3EB6D81315E5225D00632476 /* ViewController_iPad.xib in Resources */,
 				3E07FF27163EC31900ABBC17 /* XRDropdownViewCell.xib in Resources */,
 				3E07FF29163EC31900ABBC17 /* XRDropdownViewImageCell.xib in Resources */,
-				3E07FF2D163EC57B00ABBC17 /* WishlistCheckIcon@2x~ipad.png in Resources */,
-				3E07FF2E163EC57B00ABBC17 /* WishlistCheckIcon~ipad.png in Resources */,
+				3E07FF2D163EC57B00ABBC17 /* WishlistCheckIcon@2x.png in Resources */,
+				3E07FF2E163EC57B00ABBC17 /* WishlistCheckIcon.png in Resources */,
+				3E6CAE6816667AB400E99160 /* WishlistDropdownArrowDown.png in Resources */,
+				3E6CAE6916667AB400E99160 /* WishlistDropdownArrowUp.png in Resources */,
+				3E6CAE6A16667AB400E99160 /* WishlistDropdownDeleteIcon.png in Resources */,
+				3E6CAE6B16667AB400E99160 /* WishlistDropdownAddIcon.png in Resources */,
+				3E6CAE6C16667AB400E99160 /* WishlistDropdownAddIcon@2x.png in Resources */,
+				3E6CAE6D16667AB400E99160 /* WishlistDropdownDeleteIcon@2x.png in Resources */,
+				3E6CAE6E16667AB400E99160 /* WishlistCellSeparator.png in Resources */,
+				3E6CAE6F16667AB400E99160 /* WishlistCellSeparator@2x.png in Resources */,
+				3E6CAE7716667BA900E99160 /* WishlistButtonStyle2.png in Resources */,
+				3E6CAE7816667BA900E99160 /* WishlistButtonStyle2@2x.png in Resources */,
+				3E6CAE7916667BA900E99160 /* WishlistButtonStyle1.png in Resources */,
+				3E6CAE7A16667BA900E99160 /* WishlistButtonStyle1@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

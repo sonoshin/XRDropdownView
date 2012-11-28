@@ -8,8 +8,8 @@
 
 #import "XRDropdownView.h"
 
-#define kDropdownCellHeight 36.0
-#define kFooterButtonHeight 38.0
+#define kDropdownCellHeight 30.0
+#define kFooterButtonHeight 30.0
 #define kArrowsPadding 20.0
 #define kBackgroundColor [UIColor colorWithRed:82.0/255.0 green:68.0/255.0 blue:59.0/255.0 alpha:0.9]
 
@@ -188,13 +188,26 @@
   }
 }
 
-- (void)openDropdownView {
+- (void)reset {//only reset frames and buttons, doesn't reset the data
+  [self.dropdownTitleButton setSelected:NO];
+  [self.dropdownTableView setEditing:NO animated:NO];
+  [self.deleteButton setSelected:NO];
+  [UIView animateWithDuration:0.2 animations:^{
+    self.dropdownScrollView.contentOffset = CGPointZero;
+    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.dropdownTitleButton.frame.size.height)];
+  }];
+  if ([self.delegate respondsToSelector:@selector(dropdownViewDidCollapse:)]) {
+    [self.delegate dropdownViewDidCollapse:self];
+  }
+}
+
+- (void)expandWithScrollPosition:(UITableViewScrollPosition)scrollPosition {
   if ([self.delegate respondsToSelector:@selector(dropdownViewDidExpand:)]) {
     [self.delegate dropdownViewDidExpand:self]; //here need to close all other opened dropdownViews and bring this dropdownView to front
   }
   if (_currentSelectedIndexPath) {
     //Here set to UITableViewScrollPositionBottom to show the latest added item (in case of the latest is added as the last one)
-    [self.dropdownTableView selectRowAtIndexPath:_currentSelectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
+    [self.dropdownTableView selectRowAtIndexPath:_currentSelectedIndexPath animated:NO scrollPosition:scrollPosition];
   }
   [UIView animateWithDuration:0.2 animations:^{
     [self setFrame:CGRectMake(self.frame.origin.x,
@@ -217,20 +230,7 @@
     }
   }else {
     [sender setSelected:YES];
-    [self openDropdownView];
-  }
-}
-
-- (void)resetDropdownView {//only reset frames and buttons, doesn't reset the data
-  [self.dropdownTitleButton setSelected:NO];
-  [self.dropdownTableView setEditing:NO animated:NO];
-  [self.deleteButton setSelected:NO];
-  [UIView animateWithDuration:0.2 animations:^{
-    self.dropdownScrollView.contentOffset = CGPointZero;
-    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.dropdownTitleButton.frame.size.height)];
-  }];
-  if ([self.delegate respondsToSelector:@selector(dropdownViewDidCollapse:)]) {
-    [self.delegate dropdownViewDidCollapse:self];
+    [self expandWithScrollPosition:UITableViewScrollPositionBottom];
   }
 }
 
@@ -270,7 +270,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  [self.dropdownTitleButton setSelected:NO];
   XRDropdownViewCell *cell = (XRDropdownViewCell *)[tableView cellForRowAtIndexPath:indexPath];
   [self.dropdownTitleButton setTitle:cell.label.text forState:UIControlStateNormal];
 //  [UIView animateWithDuration:0.3 animations:^{
@@ -337,7 +336,7 @@
   if ([self.delegate respondsToSelector:@selector(dropdownViewWillAddCell:)]) {
     [self.delegate dropdownViewWillAddCell:self];
   }
-  [self resetDropdownView];
+  [self reset];
 }
 
 - (void)deleteButtonAction:(UIButton *)sender

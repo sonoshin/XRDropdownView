@@ -76,14 +76,14 @@
 
 - (void)resetLocalDropdownViews
 {
-  [_testDropdownView resetDropdownView];
+  [_testDropdownView reset];
 }
 
 #pragma mark - DropdownViewDelegate
 
 - (void)dropdownViewDidExpand:(XRDropdownView *)dropdownView
 {
-  [_testDropdownView resetDropdownView];
+  [_testDropdownView reset];
   dropdownOverlayView.hidden = NO;
   [self.view addSubview:dropdownOverlayView];
   [self.view bringSubviewToFront:dropdownView];
