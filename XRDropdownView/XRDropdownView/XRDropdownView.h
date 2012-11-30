@@ -40,7 +40,7 @@
 - (void)expandWithScrollPosition:(UITableViewScrollPosition)scrollPosition;
 - (void)reset;
 
-//Old methods - need optimize
+//TODO: Old methods - need optimize
 - (void)deselectCell;
 - (void)deselectCells;
 - (void)updateSelectedValues;

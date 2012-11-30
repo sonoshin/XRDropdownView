@@ -11,7 +11,8 @@
 @interface ViewController ()
 {
   UIView *dropdownOverlayView;
-  NSArray *dataArray, *sampleImages;
+  NSArray *sampleImages;
+  NSMutableArray *dataArray;
   BOOL needSampleImage;
 }
 
@@ -26,7 +27,7 @@
   needSampleImage = NO;
   sampleImages = @[]; //add images in case of needSampleImage = YES
   
-  dataArray = @[@"test01", @"test02", @"test03", @"test04", @"test05", @"test06", @"test07", @"test08", @"test09"];
+  dataArray = [NSMutableArray arrayWithArray:@[@"test01", @"test02", @"test03", @"test04", @"test05", @"test06", @"test07", @"test08", @"test09"]];
   
   CGFloat cellHeight = [XRDropdownView cellHeight];
   CGFloat footerHeight = [XRDropdownView footerHeight];
@@ -83,7 +84,6 @@
 
 - (void)dropdownViewDidExpand:(XRDropdownView *)dropdownView
 {
-  [_testDropdownView reset];
   dropdownOverlayView.hidden = NO;
   [self.view addSubview:dropdownOverlayView];
   [self.view bringSubviewToFront:dropdownView];
@@ -144,9 +144,7 @@
 
 - (void)dropdownView:(XRDropdownView *)dropdownView didRemoveCellAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSMutableArray *mutableDataArray = [NSMutableArray arrayWithArray:dataArray];
-  [mutableDataArray removeObjectAtIndex:indexPath.row];
-  dataArray = mutableDataArray;
+  [dataArray removeObjectAtIndex:indexPath.row];
 }
 
 - (void)dropdownView:(XRDropdownView *)dropdownView didSelectCellAtIndexPath:(NSIndexPath *)indexPath

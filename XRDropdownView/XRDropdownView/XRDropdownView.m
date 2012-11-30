@@ -1,4 +1,4 @@
-//
+  //
 //  XRDropdownView.m
 //  XRDropdownView
 //
@@ -16,7 +16,7 @@
 @interface XRDropdownView () <UITableViewDataSource, UITableViewDelegate>
 {
   UIImageView *upArrow, *downArrow, *separator;
-  NSMutableArray  *dropdownData;
+  NSInteger numberOfRows;
 }
 
 @property (strong, nonatomic) NSString        *defaultTitle;
@@ -127,6 +127,7 @@
     self.dropdownTitleButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height)];
     [self.dropdownTitleButton setBackgroundImage:[UIImage imageNamed:@"WishlistButtonStyle1"] forState:UIControlStateNormal];
     [self.dropdownTitleButton setBackgroundImage:[UIImage imageNamed:@"WishlistButtonStyle2"] forState:UIControlStateSelected];
+    [self.dropdownTitleButton setBackgroundImage:[UIImage imageNamed:@"WishlistButtonStyle2"] forState:UIControlStateHighlighted];
     [self.dropdownTitleButton.titleLabel setFont:[UIFont fontWithName:@"Lato-Regular" size:14.0]];
     [self.dropdownTitleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.dropdownTitleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
@@ -144,7 +145,7 @@
   self.dropdownScrollView.contentOffset = CGPointZero;
   [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.dropdownTitleButton.frame.size.height)];
   
-  CGFloat newHeight = kDropdownCellHeight*MIN(dropdownData.count, 8);
+  CGFloat newHeight = kDropdownCellHeight*MIN(numberOfRows, 8);
   [self.dropdownTableView  setFrame:CGRectMake(0, -newHeight-(_needFooterButtons?kFooterButtonHeight:5.0)-kArrowsPadding, self.frame.size.width, newHeight)];
   [self.dropdownScrollView setFrame:CGRectMake(0,
                                                0+self.frame.size.height,
@@ -248,9 +249,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   if ([self.dataSource respondsToSelector:@selector(dropdownView:numberOfRowsInSection:)]) {
-    return [self.dataSource dropdownView:self numberOfRowsInSection:section];
+    numberOfRows = [self.dataSource dropdownView:self numberOfRowsInSection:section];
+    return numberOfRows;
+  }else {
+    return 0;
   }
-  return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -298,7 +301,6 @@
 {
   if (editingStyle == UITableViewCellEditingStyleDelete)
   {
-    // TODO: Delete doesn't work
     if ([indexPath isEqual:[tableView indexPathForSelectedRow]]) { //only for single selection control
       if (indexPath.row > 0) {
         NSInteger newRow = 0;
@@ -315,11 +317,11 @@
       }
     }
     
-    [self.dropdownTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    //remote update
+    //datasource update first
     if ([self.delegate respondsToSelector:@selector(dropdownView:didRemoveCellAtIndexPath:)]) {
       [self.delegate dropdownView:self didRemoveCellAtIndexPath:indexPath];
     }
+    [self.dropdownTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     
   }
   dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC);
